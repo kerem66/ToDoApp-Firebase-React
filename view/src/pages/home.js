@@ -17,7 +17,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import withStyles from '@material-ui/core/styles/withStyles';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import NotesIcon from '@material-ui/icons/Notes';
-import Avatar from '@material-ui/core/avatar';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -48,7 +47,8 @@ const styles = (theme) => ({
 		width: 100,
 		flexShrink: 0,
 		flexGrow: 0,
-		marginTop: 20
+		marginTop: 20,
+		borderRadius: "50%"
 	},
 	uiProgess: {
 		position: 'fixed',
@@ -148,7 +148,7 @@ class home extends Component {
 						<div className={classes.toolbar} />
 						<Divider />
 						<center>
-							<Avatar src={this.state.profilePicture} className={classes.avatar} />
+							<img src={this.state.profilePicture} className={classes.avatar}  alt="profilePhoto"/>
 							<p>
 								{' '}
 								{this.state.firstName} {this.state.lastName}
