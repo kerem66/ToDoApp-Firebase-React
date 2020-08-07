@@ -84,7 +84,7 @@ class login extends Component {
       password: this.state.password,
     };
     axios
-      .post(`/login`, userData)
+      .post(`https://us-central1-todoapp-87adc.cloudfunctions.net/api/login`, userData)
       .then((response) => {
         localStorage.setItem("AuthToken", `Bearer ${response.data.token}`);
         this.setState({

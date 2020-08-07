@@ -83,7 +83,7 @@ class signup extends Component {
       confirmPassword: this.state.confirmPassword,
     };
     axios
-      .post(`/signup`, newUserData)
+      .post(`https://us-central1-todoapp-87adc.cloudfunctions.net/api/signup`, newUserData)
       .then((response) => {
         localStorage.setItem("AuthToken", `${response.data.token}`);
         this.setState({

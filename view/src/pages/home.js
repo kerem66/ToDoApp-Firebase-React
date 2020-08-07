@@ -97,7 +97,7 @@ class home extends Component {
 		const authToken = localStorage.getItem('AuthToken');
 		axios.defaults.headers.common = { Authorization: `${authToken}` }; //axiosa token vermek için yeni yol
 		axios
-			.get(`/user`)
+			.get(`https://us-central1-todoapp-87adc.cloudfunctions.net/api/user`)
 			.then((response) => {
 				console.log(response.data);
 				this.setState({
