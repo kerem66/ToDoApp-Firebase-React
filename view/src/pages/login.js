@@ -53,11 +53,20 @@ class login extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.UI.errors) {
+  // componentWillReceiveProps(nextProps) {
+  //   console.log("next props ", nextProps.UI);
+  //   if (nextProps.UI.errors) {
+  //     this.setState({
+  //       errors: nextProps.UI.errors,
+  //     });
+  //   }
+  // }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("prevState " ,prevState, " prevProps " , prevProps," snapshot ",snapshot)
+    if(prevState.errors.length> 0){
       this.setState({
-        errors: nextProps.UI.errors,
-      });
+        errors : prevState.errors
+      })
     }
   }
 
@@ -75,7 +84,7 @@ class login extends Component {
       password: this.state.password,
     };
     axios
-      .post("/login", userData)
+      .post(`/login`, userData)
       .then((response) => {
         localStorage.setItem("AuthToken", `Bearer ${response.data.token}`);
         this.setState({

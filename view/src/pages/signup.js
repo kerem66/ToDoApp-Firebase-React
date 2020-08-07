@@ -36,6 +36,7 @@ const styles = (theme) => ({
   },
 });
 
+
 class signup extends Component {
   constructor(props) {
     super(props);
@@ -82,7 +83,7 @@ class signup extends Component {
       confirmPassword: this.state.confirmPassword,
     };
     axios
-      .post("/signup", newUserData)
+      .post(`/signup`, newUserData)
       .then((response) => {
         localStorage.setItem("AuthToken", `${response.data.token}`);
         this.setState({

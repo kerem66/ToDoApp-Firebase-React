@@ -20,6 +20,7 @@ const theme = createMuiTheme({
 });
 
 function App() {
+  const url=`${process.env.PUBLIC_URL}`;
   return (
     <MuiThemeProvider theme={theme}>
       <Router>
